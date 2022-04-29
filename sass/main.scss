@@ -1,0 +1,47 @@
+// Variables
+$primary-orange: hsl(25, 97%, 53%);
+$secondary-white: hsl(0, 0%, 100%);
+$secondary-light-grey: hsl(217, 12%, 63%);
+$secondary-medium-grey: hsl(216, 12%, 54%);
+$secondary-dark-blue: hsl(213, 19%, 18%);
+$secondary-very-dark-blue: hsl(216, 12%, 8%);
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    // 1em = 16px
+    // 600 / 16 = 37.5
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+}
+
+// General styling
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: $secondary-light-grey;
+  background-color: $secondary-very-dark-blue;
+  font-family: "Overpass", sans-serif;
+}
+
+main {
+  h1 {
+    color: $secondary-white;
+  }
+}
