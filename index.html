@@ -11,26 +11,68 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="./script.js" defer></script>
     <title>Interactive rating component</title>
   </head>
   <body>
     <main>
-      <div class="card-state--rating">
+      <div class="card-state-rating">
         <!-- Rating state start -->
-        <h1 class="class-heading">How did we do?</h1>
-        Please let us know how we did with your support request. All feedback is
-        appreciated to help us improve our offering! 1 2 3 4 5 Submit
+        <div class="card__icon">
+          <img src="./images/icon-star.svg" alt="Star icon on ratings card." />
+        </div>
+        <h1 class="card__heading">How did we do?</h1>
+        <div class="card__text">
+          <p>
+            Please let us know how we did with your support request. All
+            feedback is appreciated to help us improve our offering!
+          </p>
+        </div>
+        <div class="card__ratings">
+          <div class="ratings__numbers">
+            <div class="number">
+              <input type="radio" name="select" id="1" value="1" />
+              <label for="1">1</label>
+            </div>
+            <div class="number">
+              <input type="radio" name="select" id="2" value="2" />
+              <label for="2">2</label>
+            </div>
+            <div class="number">
+              <input type="radio" name="select" id="3" value="3" />
+              <label for="3">3</label>
+            </div>
+            <div class="number">
+              <input type="radio" name="select" id="4" value="4" />
+              <label for="4">4</label>
+            </div>
+            <div class="number">
+              <input type="radio" name="select" id="5" value="5" />
+              <label for="5">5</label>
+            </div>
+          </div>
+        </div>
+        <button class="card__button" type="button">Submit</button>
+
         <!-- Rating state end -->
       </div>
-      <div class="card-state--thankyous">
-        <!-- Thank you state start -->
-        You selected
-        <!-- Add rating here -->
-        out of 5
-        <h1 class="class-heading">Thank you!</h1>
-        We appreciate you taking the time to give a rating. If you ever need
-        more support, don’t hesitate to get in touch!
-        <!-- Thank you state end -->
+      <div class="card-state-thankyou">
+        <div class="thankyou__image">
+          <img
+            src="./images/illustration-thank-you.svg"
+            alt="Thank you card submission image"
+          />
+        </div>
+        <!-- // Thank you state start  -->
+        <p class="thankyou__rating--text"></p>
+        <h1 class="card__heading">Thank you!</h1>
+        <div class="card__text">
+          <p class="text--thankyou">
+            We appreciate you taking the time to give a rating. If you ever need
+            more support, don’t hesitate to get in touch!
+          </p>
+        </div>
+        <!-- // Thank you state end  -->
       </div>
     </main>
   </body>

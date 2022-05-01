@@ -7,13 +7,13 @@ $secondary-dark-blue: hsl(213, 19%, 18%);
 $secondary-very-dark-blue: hsl(216, 12%, 8%);
 
 @mixin respond($breakpoint) {
-  @if $breakpoint == phone {
-    // 1em = 16px
-    // 600 / 16 = 37.5
-    @media (max-width: 37.5em) {
-      @content;
-    }
-  }
+  //   @if $breakpoint == phone {
+  //     // 1em = 16px
+  //     // 600 / 16 = 37.5
+  //     @media (max-width: 37.5em) {
+  //       @content;
+  //     }
+  //   }
 }
 
 // General styling
@@ -26,6 +26,7 @@ $secondary-very-dark-blue: hsl(216, 12%, 8%);
 }
 
 html {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-size: 62.5%;
@@ -34,14 +35,165 @@ html {
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-size: 1.5rem;
   color: $secondary-light-grey;
   background-color: $secondary-very-dark-blue;
   font-family: "Overpass", sans-serif;
 }
 
+.card__heading {
+  color: $secondary-white;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.card__text {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 400;
+}
+
+// Main section
 main {
-  h1 {
-    color: $secondary-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+
+  .card-state-rating {
+    background: radial-gradient(
+      98.96% 98.96% at 50% 0%,
+      hsl(215, 20%, 17%) 0%,
+      hsl(216, 24%, 12%) 100%
+    );
+    border-radius: 20px;
+    margin: 0 auto;
+    max-width: 32.7rem;
+    max-height: 36rem;
+    padding: 2.4rem;
+
+    position: absolute;
+    z-index: 2;
+    .card__icon {
+      display: flex;
+      background-color: $secondary-dark-blue;
+      padding: 1.333rem;
+      border-radius: 10rem;
+      width: 4rem;
+      height: 4rem;
+    }
+
+    .card__ratings {
+      margin-top: 2.4rem;
+
+      .ratings__numbers {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        .number {
+          background-color: $secondary-dark-blue;
+          font-weight: 700;
+          height: 4.2rem;
+          width: 4.2rem;
+          border-radius: 5rem;
+          font-size: 1.4rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 1.7rem;
+
+          & input[type="radio"] {
+            opacity: 0;
+            position: absolute;
+            width: 4.2rem;
+            height: 4.2rem;
+            cursor: pointer;
+          }
+
+          & input[type="radio"]:checked + label {
+            background-color: $secondary-medium-grey;
+            color: $secondary-white;
+            height: 4.2rem;
+            width: 4.2rem;
+            border-radius: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:hover {
+            background-color: $primary-orange;
+            color: $secondary-white;
+          }
+        }
+      }
+    }
+
+    .card__button {
+      background-color: $primary-orange;
+      padding: 1.2rem 0 1.2rem 0;
+      width: 100%;
+      color: $secondary-white;
+      text-transform: uppercase;
+      letter-spacing: 0.18667rem;
+      font-weight: 700;
+      border-radius: 2rem;
+      margin: 2.4rem 0 3.2rem 0;
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        background-color: $secondary-white;
+        color: $primary-orange;
+      }
+    }
+  }
+
+  .card-state-thankyou {
+    background: radial-gradient(
+      98.96% 98.96% at 50% 0%,
+      hsl(215, 20%, 17%) 0%,
+      hsl(216, 24%, 12%) 100%
+    );
+    border-radius: 20px;
+    margin: 0 auto;
+    max-width: 32.7rem;
+    max-height: 36rem;
+    padding: 3.4rem 2.4rem;
+    text-align: center;
+
+    position: absolute;
+    z-index: 1;
+
+    .thankyou__image img {
+      max-width: 14.4rem;
+      max-height: 9.6rem;
+    }
+
+    .thankyou__rating--text {
+      background-color: $secondary-dark-blue;
+      color: $primary-orange;
+      width: 16.8rem;
+      margin: 2.4rem auto 0 auto;
+      border-radius: 5rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    h1 {
+      margin-top: 2.4rem;
+    }
+
+    .text--thankyou {
+      margin-top: 1.7rem;
+    }
   }
 }
