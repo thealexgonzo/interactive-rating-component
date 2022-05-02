@@ -8,9 +8,7 @@ $secondary-very-dark-blue: hsl(216, 12%, 8%);
 
 @mixin respond($breakpoint) {
   @if $breakpoint == tab {
-    // 1em = 16px
-    // 600 / 16 = 37.5
-    @media (min-width: 23.43em) {
+    @media (min-width: 28.125em) {
       @content;
     }
   }
