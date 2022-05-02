@@ -7,13 +7,13 @@ $secondary-dark-blue: hsl(213, 19%, 18%);
 $secondary-very-dark-blue: hsl(216, 12%, 8%);
 
 @mixin respond($breakpoint) {
-  //   @if $breakpoint == phone {
-  //     // 1em = 16px
-  //     // 600 / 16 = 37.5
-  //     @media (max-width: 37.5em) {
-  //       @content;
-  //     }
-  //   }
+  @if $breakpoint == tab {
+    // 1em = 16px
+    // 600 / 16 = 37.5
+    @media (min-width: 23.43em) {
+      @content;
+    }
+  }
 }
 
 // General styling
@@ -36,22 +36,34 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: $secondary-light-grey;
   background-color: $secondary-very-dark-blue;
   font-family: "Overpass", sans-serif;
+
+  @include respond(tab) {
+    font-size: 1.5rem;
+  }
 }
 
 .card__heading {
   color: $secondary-white;
   font-size: 2.4rem;
   font-weight: 700;
+  margin: 0;
+
+  @include respond(tab) {
+    font-size: 2.8rem;
+  }
 }
 
 .card__text {
-  font-size: 1.4rem;
   line-height: 2.2rem;
   font-weight: 400;
+
+  & p {
+    margin: 0;
+  }
 }
 
 // Main section
@@ -73,9 +85,15 @@ main {
     max-width: 32.7rem;
     max-height: 36rem;
     padding: 2.4rem;
-
     position: absolute;
     z-index: 2;
+
+    @include respond(tab) {
+      max-width: 41.2rem;
+      min-height: 41.6rem;
+      padding: 3.2rem 3.2rem 0 3.2rem;
+    }
+
     .card__icon {
       display: flex;
       background-color: $secondary-dark-blue;
@@ -83,6 +101,28 @@ main {
       border-radius: 10rem;
       width: 4rem;
       height: 4rem;
+
+      @include respond(tab) {
+        padding: 1.6rem;
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
+
+    .rating__heading {
+      margin-top: 1.6rem;
+
+      @include respond(tab) {
+        margin-top: 3rem;
+      }
+    }
+
+    .rating__text {
+      margin-top: 1rem;
+
+      @include respond(tab) {
+        margin-top: 1.5rem;
+      }
     }
 
     .card__ratings {
@@ -106,12 +146,24 @@ main {
           justify-content: center;
           margin-right: 1.7rem;
 
+          @include respond(tab) {
+            width: 5.1rem;
+            height: 5.1rem;
+            margin-right: 2.2rem;
+            font-size: 1.6rem;
+          }
+
           & input[type="radio"] {
             opacity: 0;
             position: absolute;
             width: 4.2rem;
             height: 4.2rem;
             cursor: pointer;
+
+            @include respond(tab) {
+              width: 5.1rem;
+              height: 5.1rem;
+            }
           }
 
           & input[type="radio"]:checked + label {
@@ -123,6 +175,11 @@ main {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @include respond(tab) {
+              width: 5.1rem;
+              height: 5.1rem;
+            }
           }
 
           &:last-child {
@@ -150,6 +207,13 @@ main {
       cursor: pointer;
       border: none;
 
+      @include respond(tab) {
+        font-size: 1.5rem;
+        margin-top: 3.2rem;
+        padding: 1.1rem 0 1.1rem 0;
+        height: 4.5rem;
+      }
+
       &:hover {
         background-color: $secondary-white;
         color: $primary-orange;
@@ -173,9 +237,28 @@ main {
     position: absolute;
     z-index: 1;
 
+    @include respond(tab) {
+      max-width: 41.2rem;
+      max-height: 41.6rem;
+      padding: 4.5rem 3.8rem;
+    }
+
     .thankyou__image img {
       max-width: 14.4rem;
       max-height: 9.6rem;
+
+      @include respond(tab) {
+        max-width: 16.2rem;
+        max-height: 10.8rem;
+      }
+    }
+
+    .thankyou__heading {
+      margin-top: 2.4rem;
+
+      @include respond(tab) {
+        margin-top: 3.2rem;
+      }
     }
 
     .thankyou__rating--text {
@@ -185,11 +268,12 @@ main {
       margin: 2.4rem auto 0 auto;
       border-radius: 5rem;
       padding: 0.5rem 1.2rem;
-      font-size: 1.4rem;
-    }
 
-    h1 {
-      margin-top: 2.4rem;
+      @include respond(tab) {
+        width: 19.3rem;
+        margin-top: 3.2rem;
+        padding: 0.645rem 1.9rem;
+      }
     }
 
     .text--thankyou {
